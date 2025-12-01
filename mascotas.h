@@ -1,5 +1,5 @@
-#ifndef IMASCOTA_H
-#define IMASCOTA_H
+#ifndef MASCOTAS_H
+#define MASCOTAS_H
 
 #include <string>
 using namespace std;

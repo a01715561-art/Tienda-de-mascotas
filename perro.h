@@ -2,7 +2,7 @@
 #define PERRO_H
 
 #include <iostream>
-#include "IMascota.h"
+#include "mascotas.h"   // interfaz IMascota
 using namespace std;
 
 class Perro : public IMascota {

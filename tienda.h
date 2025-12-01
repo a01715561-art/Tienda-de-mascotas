@@ -1,9 +1,9 @@
-#ifndef TIENDAMASCOTAS_H
-#define TIENDAMASCOTAS_H
+#ifndef TIENDA_H
+#define TIENDA_H
 
 #include <vector>
 #include <iostream>
-#include "IMascota.h"
+#include "mascotas.h"
 using namespace std;
 
 class TiendaMascotas {

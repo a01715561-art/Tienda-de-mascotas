@@ -2,7 +2,7 @@
 #define PEZ_H
 
 #include <iostream>
-#include "IMascota.h"
+#include "mascotas.h"
 using namespace std;
 
 class Pez : public IMascota {
@@ -22,7 +22,7 @@ public:
     void setEdad(int e) override { edad = e; }
 
     void mostrarInfo() const override {
-        cout << "Pez   -> Nombre: " << nombre
+        cout << "Pez -> Nombre: " << nombre
              << ", Edad: " << edad
              << ", Tamaño: " << tamano << " cm" << endl;
     }

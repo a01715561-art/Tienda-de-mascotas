@@ -2,7 +2,7 @@
 #define GATO_H
 
 #include <iostream>
-#include "IMascota.h"
+#include "mascotas.h"
 using namespace std;
 
 class Gato : public IMascota {
@@ -22,7 +22,7 @@ public:
     void setEdad(int e) override { edad = e; }
 
     void mostrarInfo() const override {
-        cout << "Gato  -> Nombre: " << nombre
+        cout << "Gato -> Nombre: " << nombre
              << ", Edad: " << edad
              << ", Color: " << color << endl;
     }
