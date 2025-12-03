@@ -2,19 +2,30 @@
 #define MASCOTAS_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
-class IMascota {
+class Mascota {
+protected:
+    string nombre;
+    int    edad;
+
 public:
-    virtual string getNombre() const = 0;
-    virtual int getEdad() const = 0;
+    Mascota(const string& _nombre, int _edad)
+        : nombre(_nombre), edad(_edad) {}
 
-    virtual void setNombre(const string& n) = 0;
-    virtual void setEdad(int e) = 0;
+    string getNombre() const { return nombre; }
+    int    getEdad()   const { return edad;  }
 
-    virtual void mostrarInfo() const = 0;
+    void setNombre(const string& n) { nombre = n; }
+    void setEdad(int e)             { edad   = e; }
 
-    virtual ~IMascota() = default;
+    virtual void mostrarInfo() const {
+        cout << "Mascota -> Nombre: " << nombre
+             << ", Edad: " << edad << endl;
+    }
+
+    virtual ~Mascota() {}
 };
 
 #endif

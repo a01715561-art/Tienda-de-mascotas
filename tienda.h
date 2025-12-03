@@ -1,26 +1,45 @@
 #ifndef TIENDA_H
 #define TIENDA_H
 
-#include <vector>
-#include <iostream>
 #include "mascotas.h"
-using namespace std;
+
+const int MAX_MASCOTAS = 100;
 
 class TiendaMascotas {
 private:
-    vector<IMascota*> inventario;
+    Mascota* inventario[MAX_MASCOTAS];
+    int total;
 
 public:
-    void agregarMascota(IMascota* m) {
-        inventario.push_back(m);
+    TiendaMascotas() : total(0) {}
+
+    bool agregarMascota(Mascota* m) {
+        if (total >= MAX_MASCOTAS) {
+            cout << "La tienda está llena, no se pueden agregar más mascotas.\n";
+            return false;
+        }
+        inventario[total] = m;
+        total++;
+        return true;
     }
 
     void mostrarInventario() const {
-        cout << "\n=== Inventario de la tienda ===" << endl;
-        for (IMascota* m : inventario) {
-            m->mostrarInfo();
+        if (total == 0) {
+            cout << "\nLa tienda todavía no tiene mascotas registradas.\n";
+            return;
+        }
+
+        cout << "\n=== Inventario de la tienda ===\n";
+        for (int i = 0; i < total; i++) {
+            inventario[i]->mostrarInfo(); 
         }
         cout << endl;
+    }
+
+    ~TiendaMascotas() {
+        for (int i = 0; i < total; i++) {
+            delete inventario[i];
+        }
     }
 };
 

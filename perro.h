@@ -1,35 +1,29 @@
 #ifndef PERRO_H
 #define PERRO_H
 
-#include <iostream>
-#include "mascotas.h"   // interfaz IMascota
-using namespace std;
+#include "mascotas.h"
 
-class Perro : public IMascota {
+class Perro : public Mascota {
 private:
-    string nombre;
-    int edad;
     string raza;
 
 public:
     Perro(const string& _nombre, int _edad, const string& _raza)
-        : nombre(_nombre), edad(_edad), raza(_raza) {}
+        : Mascota(_nombre, _edad), raza(_raza) {}
 
-    string getNombre() const override { return nombre; }
-    int getEdad() const override { return edad; }
-
-    void setNombre(const string& n) override { nombre = n; }
-    void setEdad(int e) override { edad = e; }
-
-    void mostrarInfo() const override {
-        cout << "Perro -> Nombre: " << nombre
-             << ", Edad: " << edad
-             << ", Raza: " << raza << endl;
-    }
+    void setRaza(const string& r) { raza = r; }
+    string getRaza() const { return raza; }
 
     void ladrar() const {
         cout << nombre << " dice: ¡Guau guau!" << endl;
     }
+
+    void mostrarInfo() const override {
+        cout << "Perro -> Nombre: " << nombre
+             << ", Edad: "   << edad
+             << ", Raza: "   << raza << endl;
+    }
 };
 
 #endif
+
